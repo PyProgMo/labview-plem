@@ -1,3 +1,14 @@
+imporovement to plem4 by Moritz Limbacher 
+(All changes not committed yet)
+* increased measurement Speed: The VI ticks with 1000 ms, which is a good rate to keep the measurement stable. 
+But, with integration times far below 1 second, the tick rate slows the measurement process down. Especially for Autostage measurements, with time of (x_steps*y_steps*(t_integration+t_process+t_VI_tick)) this can slow the process down a lot. 
+=> Fix: decrease the ticks as much as possible. Testing result showd, that 50 ms is a sweet spot for the autostage (below will lead to some spectra not being save, do not ask me why, there was no pattern in the data). So, the Tick duration can be decreased from 1000 ms to 50 ms to save time
+* A Plasma lamp (White light down to 430 nm due to silver reflection mirrors) has been added into the setup. In the current state, the lamp must be switched on and off manually since its software has not been integrated yet. 
+* A new powermeter has been installed and the v4 VI already updated
+* the colormap for the Image display is now gray scale instead of the colorscale before
+* Only Newton spectrometer and clara camera are currently build into the v4 version
+Note: Processing of the Autostage colormaps: watch my Github and use https://github.com/PyProgMo/HyperSpectralImaging to creat hyperspectral images from the data that have been collected 
+
 verbesserungen plemv3
 
 * Wavelength First Pixel (nm): -58.82 in ReadOut Mode should be 0.
